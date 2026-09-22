@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en" data-view="home">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Advantage Cars — Value Car Rentals, Memphis</title>
+<meta name="description" content="Honest, affordable car rental in Memphis. Delivered to you — no counter, no queue, no upsell.">
+<meta property="og:title" content="Advantage Cars — Value Car Rentals, Memphis">
+<meta property="og:description" content="Honest, affordable car rental in Memphis. Delivered to you — no counter, no queue, no upsell.">
+<meta name="twitter:title" content="Advantage Cars — Value Car Rentals, Memphis">
+<meta name="twitter:description" content="Honest, affordable car rental in Memphis. Delivered to you — no counter, no queue, no upsell.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ADVANTAGE CARS — value brand, standalone
+   A Priority Transportation company.
+   ============================================================ */
+:root{
+  --bg:        #F6F4EF;
+  --surface:   #FFFFFF;
+  --surface-2: #E5E0D4;
+  --line:      rgba(20,20,28,.12);
+  --line-2:    rgba(20,20,28,.22);
+  --ink:       #14141C;
+  --ink-mute:  #6C6A61;
+  --accent:    #1F6F5C;
+  --accent-ink:#FFFFFF;
+
+  --max: 1180px;
+  --gutter: clamp(20px, 5vw, 56px);
+  --r: 4px;
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --sec-pad: clamp(56px, 8vw, 92px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:'Archivo',system-ui,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+h1,h2,h3{font-weight:800;letter-spacing:-.035em;line-height:1.04;margin:0}
+h1{font-size:clamp(42px,7.6vw,80px)}
+h2{font-size:clamp(28px,4.4vw,48px)}
+h3{font-size:clamp(18px,2vw,22px);line-height:1.2;letter-spacing:-.02em}
+
+.eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 18px;
+}
+.lede{font-size:clamp(15.5px,1.6vw,18px);color:var(--ink-mute);max-width:56ch;margin:20px 0 0}
+
+/* ---------- HEADER ---------- */
+header{
+  position:sticky;top:0;z-index:60;
+  background:rgba(246,244,239,.88);
+  backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--line);
+}
+.bar{display:flex;align-items:center;gap:clamp(14px,2.6vw,34px);height:68px}
+.logo{
+  font-weight:900;font-size:19px;letter-spacing:-.04em;
+  display:flex;align-items:baseline;gap:8px;flex-shrink:0;
+}
+.logo em{
+  font-style:normal;font-size:10px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-mute);
+}
+nav.links{display:flex;gap:clamp(12px,2vw,28px);margin-left:10px}
+nav.links a{font-size:14px;font-weight:500;color:var(--ink-mute);padding:6px 0;position:relative;transition:color 220ms var(--ease)}
+nav.links a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--accent);transition:right 300ms var(--ease)}
+nav.links a:hover{color:var(--ink)}
+nav.links a:hover::after{right:0}
+.bar .spacer{flex:1}
+.signin{font-size:13px;color:var(--ink-mute);transition:color 200ms}
+.signin:hover{color:var(--ink)}
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:13px 26px;border-radius:var(--r);
+  background:var(--accent);color:var(--accent-ink);
+  font-size:14px;font-weight:700;
+  transition:transform 200ms var(--ease), filter 200ms;
+  white-space:nowrap;
+}
+.btn:hover{filter:brightness(1.1);transform:translateY(-1px)}
+.btn.sm{padding:9px 17px;font-size:12.5px}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-2)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent);filter:none}
+.hero .btn.ghost{color:#fff;border-color:rgba(255,255,255,.4)}
+.hero .btn.ghost:hover{border-color:#fff;color:#fff;background:rgba(255,255,255,.08)}
+
+/* ---------- VIEW SWAP ---------- */
+[data-page]{display:none}
+html[data-view="home"]    [data-page="home"],
+html[data-view="fleet"]   [data-page="fleet"],
+html[data-view="deals"]   [data-page="deals"],
+html[data-view="partner"] [data-page="partner"],
+html[data-view="about"]   [data-page="about"]{display:block}
+
+/* ---------- HERO WITH VIDEO ---------- */
+.hero{
+  position:relative;
+  min-height:clamp(520px,82vh,760px);
+  display:flex;align-items:flex-end;
+  padding:0 0 clamp(44px,7vw,84px);
+  overflow:hidden;
+  background:#14141C;
+  color:#F6F4EF;
+}
+.hero video{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;z-index:0;
+}
+.hero .scrim{
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(to top, rgba(20,20,28,.92) 4%, rgba(20,20,28,.42) 48%, rgba(20,20,28,.62) 100%),
+    linear-gradient(to right, rgba(20,20,28,.72), transparent 62%);
+}
+.hero .wrap{position:relative;z-index:2;width:100%}
+.hero h1{max-width:13ch}
+.hero .lede{color:rgba(246,244,239,.82);margin-top:20px}
+.hero-actions{display:flex;gap:13px;flex-wrap:wrap;margin-top:32px}
+.hero-meta{
+  display:flex;gap:clamp(22px,5vw,60px);flex-wrap:wrap;
+  margin-top:clamp(38px,6vw,58px);padding-top:24px;
+  border-top:1px solid rgba(255,255,255,.2);
+}
+.hero-meta span{
+  display:block;font-size:10.5px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(246,244,239,.6);margin-bottom:5px;
+}
+.hero-meta b{font-size:clamp(21px,2.8vw,28px);font-weight:800;letter-spacing:-.03em}
+
+/* Mute/pause affordance — never trap a user with motion they can't stop */
+.vidctl{
+  position:absolute;bottom:18px;right:clamp(16px,4vw,32px);z-index:3;
+  display:flex;align-items:center;gap:7px;
+  padding:7px 13px;border-radius:999px;
+  background:rgba(20,20,28,.5);border:1px solid rgba(255,255,255,.22);
+  color:#F6F4EF;font-size:11.5px;font-weight:600;letter-spacing:.06em;
+  backdrop-filter:blur(8px);transition:background 200ms;
+}
+.vidctl:hover{background:rgba(20,20,28,.78)}
+
+/* ---------- SECTIONS ---------- */
+.section{padding:var(--sec-pad) 0}
+.section-head{margin-bottom:clamp(30px,4.4vw,48px);max-width:60ch}
+
+/* ---------- TILES ---------- */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1px;background:var(--line)}
+.tile{background:var(--bg);padding:clamp(22px,2.6vw,32px);transition:background 300ms var(--ease);display:flex;flex-direction:column}
+.tile:hover{background:var(--surface)}
+.tile .k{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.tile h3{margin-bottom:8px}
+.tile p{font-size:14px;color:var(--ink-mute);margin:0 0 20px;flex:1}
+.tile .go{font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:8px}
+.tile .go svg{transition:transform 260ms var(--ease)}
+.tile:hover .go svg{transform:translateX(4px)}
+
+/* ---------- VEHICLE CARDS ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:clamp(14px,1.6vw,20px)}
+.car{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;display:flex;flex-direction:column;
+  transition:border-color 260ms var(--ease), transform 260ms var(--ease);
+}
+.car:hover{transform:translateY(-3px);border-color:var(--line-2)}
+.car.out{opacity:.5}
+.car.out:hover{transform:none}
+.car .shot{
+  aspect-ratio:16/10;
+  background:linear-gradient(160deg,rgba(31,111,92,.13),transparent 60%),var(--surface-2);
+  display:flex;align-items:center;justify-content:center;position:relative;
+}
+.car .shot img{width:100%;height:100%;object-fit:cover}
+.car .shot svg{width:66%;height:auto;opacity:.45;color:var(--ink)}
+.car .tag{
+  position:absolute;top:11px;left:11px;
+  font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:4px 9px;border-radius:2px;background:rgba(246,244,239,.92);color:var(--ink);
+  border:1px solid var(--line);backdrop-filter:blur(4px);
+}
+.car .body{padding:18px;display:flex;flex-direction:column;flex:1}
+.car h3{margin-bottom:4px}
+.car .yr{font-size:12.5px;color:var(--ink-mute);margin:0 0 15px}
+.car .specs{
+  list-style:none;margin:0 0 18px;padding:0;
+  display:flex;flex-wrap:wrap;gap:6px;
+}
+.car .specs li{
+  font-size:11.5px;color:var(--ink-mute);
+  border:1px solid var(--line);border-radius:999px;padding:3px 10px;
+}
+.car .foot{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.car .price b{font-size:24px;font-weight:800;letter-spacing:-.035em}
+.car .price span{font-size:12px;color:var(--ink-mute);margin-left:3px}
+
+/* One car shouldn't sit in a three-up grid looking like two are missing. */
+.grid.solo{grid-template-columns:minmax(0,1fr);max-width:720px}
+.grid.solo .shot{aspect-ratio:16/9}
+.grid.solo .body{padding:24px}
+.grid.solo h3{font-size:clamp(22px,2.6vw,28px)}
+.grid.solo .price b{font-size:30px}
+
+/* ---------- FILTERS ---------- */
+.filters{
+  display:flex;gap:9px;flex-wrap:wrap;align-items:center;
+  padding-bottom:24px;border-bottom:1px solid var(--line);margin-bottom:clamp(24px,3.2vw,36px);
+}
+.chip{
+  padding:8px 16px;border-radius:999px;border:1px solid var(--line-2);
+  font-size:12.5px;font-weight:600;color:var(--ink-mute);transition:all 220ms var(--ease);
+}
+.chip:hover{color:var(--ink);border-color:var(--ink-mute)}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.count{margin-left:auto;font-size:12.5px;color:var(--ink-mute)}
+
+/* ---------- TRUST ---------- */
+.trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line)}
+.trust-grid > div{background:var(--bg);padding:clamp(28px,4vw,46px) 18px;text-align:center}
+.trust-grid b{display:block;font-size:clamp(32px,5vw,50px);font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:10px}
+.trust-grid span{font-size:11.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-mute)}
+
+/* ---------- CLOSING ---------- */
+.close-cta{padding:var(--sec-pad) 0;text-align:center}
+.close-cta h2{max-width:18ch;margin:0 auto}
+.close-cta .btn{margin-top:30px}
+
+/* ---------- INTERIOR PAGES ---------- */
+.page-head{padding:clamp(48px,6.5vw,80px) 0 clamp(26px,3.2vw,38px)}
+.page-head h1{font-size:clamp(36px,5.6vw,62px);max-width:16ch}
+.split{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(26px,4vw,60px);align-items:start}
+.panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r);
+  padding:clamp(22px,2.6vw,30px);position:sticky;top:92px;
+}
+.panel h3{margin-bottom:6px}
+.panel .note{font-size:13px;color:var(--ink-mute);margin:0 0 22px}
+
+.field{margin-bottom:15px}
+.field label{display:block;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:7px}
+.field input,.field select,.field textarea{
+  width:100%;padding:12px 13px;background:var(--bg);color:var(--ink);
+  border:1px solid var(--line-2);border-radius:var(--r);
+  font-family:inherit;font-size:14.5px;transition:border-color 200ms var(--ease);
+}
+.field textarea{min-height:100px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--accent);outline:none}
+.field input::placeholder,.field textarea::placeholder{color:var(--ink-mute);opacity:.75}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.panel .btn{width:100%;margin-top:6px}
+.form-note{font-size:12px;color:var(--ink-mute);margin:14px 0 0;text-align:center}
+
+.prose p{font-size:16px;max-width:62ch;margin-bottom:18px}
+.prose h3{margin:34px 0 12px}
+
+.steps{border-top:1px solid var(--line);margin-top:8px}
+.step{display:grid;grid-template-columns:50px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.step .n{font-size:24px;font-weight:800;color:var(--accent);letter-spacing:-.04em;line-height:1}
+.step h3{margin-bottom:6px}
+.step p{color:var(--ink-mute);font-size:14.5px;margin:0;max-width:56ch}
+
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{padding:19px 0;cursor:pointer;list-style:none;font-size:16px;font-weight:600;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--accent);font-size:20px;font-weight:400;transition:transform 260ms var(--ease)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq p{padding:0 0 20px;color:var(--ink-mute);font-size:14.5px;max-width:62ch;margin:0}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line);padding:clamp(42px,6vw,66px) 0 38px}
+.foot-top{display:flex;justify-content:space-between;gap:34px;flex-wrap:wrap;margin-bottom:42px}
+.foot-brand{font-size:24px;font-weight:900;letter-spacing:-.04em}
+.foot-cols{display:flex;gap:clamp(28px,6vw,76px);flex-wrap:wrap}
+.foot-cols h4{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin:0 0 14px}
+.foot-cols a{display:block;font-size:14px;color:var(--ink-mute);margin-bottom:9px;transition:color 200ms}
+.foot-cols a:hover{color:var(--ink)}
+.foot-bot{border-top:1px solid var(--line);padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-mute)}
+
+/* ---------- MOTION ---------- */
+.rise{animation:rise 740ms var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.d1{animation-delay:80ms}.d2{animation-delay:160ms}.d3{animation-delay:240ms}.d4{animation-delay:320ms}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:900px){
+  .trust-grid{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
+  .panel{position:static}
+  nav.links{display:none}
+}
+@media (max-width:560px){
+  .signin{display:none}
+  .hero{min-height:74vh}
+  .hero-meta{gap:20px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a href="#" class="logo" data-nav="home">Advantage<em>Cars</em></a>
+    <nav class="links">
+      <a href="#" data-nav="fleet">Fleet</a>
+      <a href="#" data-nav="deals">Deals</a>
+      <a href="#" data-nav="partner">Partner</a>
+      <a href="#" data-nav="about">About</a>
+    </nav>
+    <div class="spacer"></div>
+    <a href="#" class="signin">Sign in</a>
+    <a href="#" class="btn sm" data-nav="fleet">Book now</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<div data-page="home">
+
+  <section class="hero">
+    <video id="heroVid" autoplay muted loop playsinline preload="none"
+           width="1280" height="720"
+           poster="media/hero-poster.jpg" aria-hidden="true" tabindex="-1">
+      <source src="media/hero.mp4" type="video/mp4">
+    </video>
+    <div class="scrim"></div>
+
+    <button type="button" class="vidctl" id="vidctl" aria-pressed="false">
+      <svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor" aria-hidden="true"><rect x="0" y="0" width="3" height="12" rx="1"/><rect x="7" y="0" width="3" height="12" rx="1"/></svg>
+      <span>Pause</span>
+    </button>
+
+    <div class="wrap">
+      <p class="eyebrow rise" style="color:#7FD4BC">Memphis, Tennessee</p>
+      <h1 class="rise d1">A good car,<br>for less.</h1>
+      <p class="lede rise d2">An honest sedan at an honest rate. No counter, no queue, no upsell — we bring it to you, you drive off.</p>
+      <div class="hero-actions rise d3">
+        <a href="#" class="btn" data-nav="fleet">Book now</a>
+        <a href="#" class="btn ghost" data-nav="deals">View details</a>
+      </div>
+      <div class="hero-meta rise d4">
+        <div><span>From</span><b><span data-from-price>$55</span> / day</b></div>
+        <div><span>Available now</span><b id="availCount">1 vehicle</b></div>
+        <div><span>Airport delivery</span><b>Free, 3+ days</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">What we do</p>
+        <h2>Three ways to save.</h2>
+      </div>
+      <div class="tiles">
+        <div class="tile">
+          <div class="k">Rent</div>
+          <h3>Take the keys</h3>
+          <p>A clean, inspected sedan ready today. Delivered to the airport, your hotel, or your door — same day across Memphis.</p>
+          <a href="#" class="go" data-nav="fleet">View details <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="tile">
+          <div class="k">Deals</div>
+          <h3>Weekly rates</h3>
+          <p>Book five days and the sixth is free. Monthly rates run 20% below the daily price on anything in the fleet.</p>
+          <a href="#" class="go" data-nav="deals">View details <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+        <div class="tile">
+          <div class="k">Partner</div>
+          <h3>List your car</h3>
+          <p>Put an idle vehicle to work. We handle booking, cleaning and handover — you keep the income and set the calendar.</p>
+          <a href="#" class="go" data-nav="partner">View details <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M9 1l4 4-4 4M13 5H1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Featured</p>
+        <h2>Available right now.</h2>
+      </div>
+      <div class="grid" id="featured"></div>
+    </div>
+  </section>
+
+  <section class="trust">
+    <div class="wrap" style="padding:0">
+      <div class="trust-grid">
+        <div><b>3,390</b><span>Trips completed</span></div>
+        <div><b>4.9</b><span>Average rating</span></div>
+        <div><b data-from-price>$55</b><span>Daily rate</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="close-cta">
+    <div class="wrap">
+      <h2>Pick a car. Pay less. Drive off.</h2>
+      <a href="#" class="btn" data-nav="fleet">Book now</a>
+    </div>
+  </section>
+</div>
+
+<!-- ============ FLEET ============ -->
+<div data-page="fleet">
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">Fleet</p>
+      <h1>One car. Ready today.</h1>
+      <p class="lede">Our fleet is small and growing. What's here is ours, photographed as it actually stands, and priced per day with no counter fees. More cars are being added — check back, or call and we'll tell you what's coming.</p>
+    </div>
+  </section>
+  <section style="padding-bottom:clamp(64px,8vw,100px)">
+    <div class="wrap">
+      <div class="filters" id="filters" role="group" aria-label="Filter by category"></div>
+      <div class="grid" id="fleetGrid"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ DEALS ============ -->
+<div data-page="deals">
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">Deals</p>
+      <h1>Stay longer, pay less.</h1>
+      <p class="lede">Every rate below is already in the price you see on the fleet page. No codes to enter, nothing to claim at pickup.</p>
+    </div>
+  </section>
+  <section style="padding-bottom:clamp(64px,8vw,100px)">
+    <div class="wrap">
+      <div class="tiles">
+        <div class="tile"><div class="k">Weekly</div><h3>Sixth day free</h3><p>Book five consecutive days and the sixth costs nothing. Applies to every car in the fleet.</p></div>
+        <div class="tile"><div class="k">Monthly</div><h3>28 days, 20% off</h3><p>For contract work, insurance replacements, or a long visit. Billed monthly, cancel with seven days' notice.</p></div>
+        <div class="tile"><div class="k">Airport</div><h3>Free MEM delivery</h3><p>On rentals of three days or more. We meet you at arrivals; there is no counter and no shuttle.</p></div>
+        <div class="tile"><div class="k">Repeat</div><h3>Fifth rental free</h3><p>Rent four times in a year and the fifth day-rate is on us. Tracked automatically against your phone number.</p></div>
+      </div>
+
+      <h2 style="margin-top:clamp(48px,6.5vw,78px)">What's included either way</h2>
+      <div class="steps">
+        <div class="step"><div class="n">01</div><div><h3>Unlimited mileage in Tennessee</h3><p>Cross state lines and it's 25¢ a mile beyond 200 per day. Told to you upfront, not discovered on the invoice.</p></div></div>
+        <div class="step"><div class="n">02</div><div><h3>A full tank</h3><p>Bring it back full or we refuel at pump price plus $15. No penalty rate.</p></div></div>
+        <div class="step"><div class="n">03</div><div><h3>Free cancellation</h3><p>Up to 24 hours before pickup, refunded in full to the original card.</p></div></div>
+        <div class="step"><div class="n">04</div><div><h3>Delivery across the metro</h3><p>Airport, hotel, home or office. Germantown, Collierville and Bartlett included at no extra cost.</p></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ PARTNER ============ -->
+<div data-page="partner">
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">Partner</p>
+      <h1>Your car earns while you're not driving it.</h1>
+      <p class="lede">List a vehicle with us and we handle the bookings, the cleaning, the handover and the damage claims. You approve the calendar and collect the income.</p>
+    </div>
+  </section>
+  <section style="padding-bottom:clamp(46px,6vw,72px)">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <h2>How it works</h2>
+          <div class="steps">
+            <div class="step"><div class="n">01</div><div><h3>Send the details</h3><p>Year, make, mileage and condition. We'll tell you within two days whether it fits the fleet and what it should earn.</p></div></div>
+            <div class="step"><div class="n">02</div><div><h3>Inspection and photos</h3><p>We check the car over, shoot it properly, and write the listing. Takes about ninety minutes, at your place or ours.</p></div></div>
+            <div class="step"><div class="n">03</div><div><h3>You set the calendar</h3><p>Block any date you need the car. Nothing books without falling inside the availability you've approved.</p></div></div>
+            <div class="step"><div class="n">04</div><div><h3>We run every rental</h3><p>Screening, contracts, keys, fuel, cleaning and support. You never meet a renter unless you want to.</p></div></div>
+            <div class="step"><div class="n">05</div><div><h3>Paid monthly</h3><p>Direct deposit on the first, with a statement showing every booking, every deduction, and the nights the car sat idle.</p></div></div>
+          </div>
+
+          <h2 style="margin-top:clamp(46px,6vw,74px)">What owners ask</h2>
+          <div class="faq">
+            <details open><summary>What does Advantage take?</summary><p>A flat share of each completed booking, agreed before your car is listed and unchanged for the length of the agreement. There is no listing fee, no monthly fee, and nothing owed for a month with no bookings.</p></details>
+            <details><summary>Who covers damage?</summary><p>Every renter is screened and carries protection on the booking. Damage claims are filed and pursued by us, and you're kept on the thread throughout. Your own policy is never the first line.</p></details>
+            <details><summary>What kind of cars qualify?</summary><p>Generally under eight years old, under 100,000 miles, clean title, and in good cosmetic condition. Economy and mid-size sedans move fastest. Send it through even if you're unsure — we'll tell you honestly.</p></details>
+            <details><summary>Can I take the car back?</summary><p>Yes, with thirty days' notice, or immediately once any confirmed booking on it has ended. There is no lock-in period.</p></details>
+            <details><summary>Do I need to be in Memphis?</summary><p>The car does. You don't — several owners live out of state and haven't seen their vehicle in a year.</p></details>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <h3>List your vehicle</h3>
+          <p class="note">Tell us what you've got. We'll come back within two business days with an earnings estimate.</p>
+          <div class="field-row">
+            <div class="field"><label for="pt-year">Year</label><input id="pt-year" type="text" placeholder="2022"></div>
+            <div class="field"><label for="pt-miles">Mileage</label><input id="pt-miles" type="text" placeholder="48,000"></div>
+          </div>
+          <div class="field"><label for="pt-vehicle">Make and model</label><input id="pt-vehicle" type="text" placeholder="Honda Civic LX"></div>
+          <div class="field"><label for="pt-condition">Condition</label><select id="pt-condition"><option>Excellent</option><option>Good</option><option>Fair</option></select></div>
+          <div class="field"><label for="pt-avail">Availability</label><select id="pt-avail"><option>Full time</option><option>Weekdays only</option><option>Weekends only</option><option>Occasional</option></select></div>
+          <div class="field-row">
+            <div class="field"><label for="pt-name">Name</label><input id="pt-name" type="text" placeholder="Full name"></div>
+            <div class="field"><label for="pt-phone">Phone</label><input id="pt-phone" type="tel" placeholder="(901) 000-0000"></div>
+          </div>
+          <a href="#" class="btn">Send details</a>
+          <p class="form-note">No commitment. We'll tell you if it isn't a fit.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<div data-page="about">
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">About</p>
+      <h1>Cheap shouldn't feel cheap.</h1>
+      <p class="lede">Advantage is the value line of Priority Transportation, run from the same Memphis fleet, cleaned to the same standard, and supported by the same phone number.</p>
+    </div>
+  </section>
+
+  <section style="padding-bottom:clamp(38px,5vw,60px)">
+    <div class="wrap">
+      <div class="prose">
+        <p>Most budget rental companies save money in the places you notice — a dirty cabin, a counter queue, a bait rate that doubles at pickup. We'd rather save it in the places you don't. There's no airport counter to staff, no shuttle bus to run, and no commission-driven upsell script, because there's nobody standing between you and the car.</p>
+        <p>What you get instead is a clean, inspected, properly photographed vehicle delivered where you are, at the price shown on the site. Every car is the same one in the listing. Every rate includes the mileage and the fuel policy in plain language.</p>
+        <p>When a vehicle is out of service we leave it on the site and say so, because a fleet that claims everything is always available isn't telling the truth about anything.</p>
+
+        <h3>Where we operate</h3>
+        <p>Memphis and the surrounding metro, including delivery to Memphis International, downtown hotels, and addresses in Germantown, Collierville and Bartlett.</p>
+
+        <h3>Looking for something more premium?</h3>
+        <p>Priority Transportation runs the SUV, premium and chauffeured side of the fleet. Same company, same standards, different cars.</p>
+      </div>
+
+      <div class="trust-grid" style="margin-top:clamp(40px,5.5vw,64px)">
+        <div><b data-fleet-size>1</b><span>Vehicles in fleet</span></div>
+        <div><b>3,390</b><span>Trips completed</span></div>
+        <div><b>4.9</b><span>Average rating</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-bottom:clamp(64px,8vw,100px)">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <h2>Get in touch</h2>
+          <p class="lede" style="margin-bottom:28px">Questions about a booking, a quote, or listing your car — this reaches the same team either way.</p>
+          <div class="steps">
+            <div class="step"><div class="n">01</div><div><h3>Phone</h3><p>1-423-682-9144 — answered 7am to 9pm, seven days.</p></div></div>
+            <div class="step"><div class="n">02</div><div><h3>Email</h3><p>hello@prioritycarrentals.com — replies inside one business day.</p></div></div>
+            <div class="step"><div class="n">03</div><div><h3>In person</h3><p>By appointment in Memphis. We'll come to you for handovers and inspections.</p></div></div>
+          </div>
+        </div>
+        <aside class="panel">
+          <h3>Send a message</h3>
+          <p class="note">Tell us what you need and we'll route it to the right person.</p>
+          <div class="field"><label for="ab-topic">About</label><select id="ab-topic"><option>A rental</option><option>Deals and long-term rates</option><option>Listing my vehicle</option><option>An existing booking</option><option>Something else</option></select></div>
+          <div class="field-row">
+            <div class="field"><label for="ab-name">Name</label><input id="ab-name" type="text" placeholder="Full name"></div>
+            <div class="field"><label for="ab-phone">Phone</label><input id="ab-phone" type="tel" placeholder="(901) 000-0000"></div>
+          </div>
+          <div class="field"><label for="ab-email">Email</label><input id="ab-email" type="email" placeholder="you@example.com"></div>
+          <div class="field"><label for="ab-msg">Message</label><textarea id="ab-msg" placeholder="What can we help with?"></textarea></div>
+          <a href="#" class="btn">Send message</a>
+          <p class="form-note">We reply to everything, usually same day.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">Advantage</div>
+        <p class="lede" style="font-size:14px;margin-top:10px;max-width:34ch">Value car rentals, Memphis. A Priority Transportation brand.</p>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h4>Rent</h4>
+          <a href="#" data-nav="fleet">Fleet</a>
+          <a href="#" data-nav="deals">Deals</a>
+          <a href="#" data-nav="fleet">Airport delivery</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="#" data-nav="about">About</a>
+          <a href="#" data-nav="partner">Partner with us</a>
+          <a href="#" data-nav="about">Contact</a>
+        </div>
+        <div>
+          <h4>Legal</h4>
+          <a href="#">Policies</a>
+          <a href="#">Deposits &amp; refunds</a>
+          <a href="#">Booking rules</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Priority Transportation. Memphis, Tennessee.</span>
+      <span>1-423-682-9144</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   THE ONLY BLOCK YOU EDIT TO ADD, REMOVE OR CHANGE A CAR.
+   Everything else on the site counts from this array: the fleet
+   page, the featured card, the "available now" figure in the hero,
+   the fleet size, and the "from" price. Change nothing else.
+
+   TO ADD A CAR
+   1.  Prep the photo:   python3 prep-photo.py yourphoto.jpg
+       It crops, resizes and drops the result straight into
+       photos/. It prints the filename to use.
+   2.  Copy the template below, paste it inside the [ ] brackets,
+       and fill it in. Mind the comma between entries.
+   3.  Save. Refresh the page. Done.
+
+   TEMPLATE — copy from here:
+
+     {
+       y: 2018,
+       name: "Toyota Corolla",
+       trim: "LE",                     // optional, omit if none
+       cat: "Sedan",                   // "Economy" or "Sedan"
+       price: 60,                      // dollars per day, number not text
+       ok: true,                       // false = listed but unavailable
+       photo: "photos/corolla-2018-le.jpg",
+       specs: ["5 seats","Automatic","4 doors","Bluetooth"]
+     },
+
+   NOTES
+   ·  cat must match something in CATS below, or it won't filter.
+   ·  ok:false keeps the car visible but dimmed, with a "Notify me"
+      button instead of "Book now". Use it when a car is out for
+      service — don't delete the entry, or you lose its link.
+   ·  Filters appear on their own once more than one category is
+      in stock. With one category they stay hidden.
+   ·  The last entry needs no trailing comma; every other one does.
+   ·  photo is a path into photos/, not an image pasted inline.
+      The file must actually exist there or the card shows blank.
+   ══════════════════════════════════════════════════════════════ */
+const FLEET = [
+
+  {
+    y: 2014,
+    name: "Chevrolet Cruze",
+    trim: "1LT",
+    cat: "Sedan",
+    price: 55,                  // TODO: confirm daily rate with owner
+    ok: true,
+    photo: "photos/cruze-2014-1lt.jpg",
+    specs: ["5 seats","Automatic","4 doors","Bluetooth","Cruise control","36 mpg hwy"]
+  }
+
+];
+
+/* Categories offered. Keep "All" first. */
+const CATS = ["All","Economy","Sedan"];
+
+/* Placeholder silhouette — swap for real photography at build. */
+const ART = `<svg viewBox="0 0 200 76" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 56h176M28 56c0 6.6 5.4 12 12 12s12-5.4 12-12M148 56c0 6.6 5.4 12 12 12s12-5.4 12-12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M18 56c-4 0-6-2.6-6-6v-9c0-4 2.6-6.6 7-7.6l26-5.6 16-11c3-2 6-3 9.4-3h39c4 0 7 1.4 9.6 4l13 15 33 6c5 1 8 4 8 8.6v2.6c0 3.6-2.4 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M64 27v14M96 25v16" stroke="currentColor" stroke-width="2"/></svg>`;
+
+const card = v => `
+  <article class="car${v.ok ? "" : " out"}">
+    <div class="shot">
+      ${v.photo ? `<img src="${v.photo}" alt="${v.y} ${v.name}${v.trim ? " " + v.trim : ""}" width="1120" height="630" loading="lazy" decoding="async">` : ART}
+      <span class="tag">${v.cat}</span>
+    </div>
+    <div class="body">
+      <h3>${v.name}${v.trim ? ` ${v.trim}` : ""}</h3>
+      <p class="yr">${v.y}${v.ok ? "" : " · Unavailable"}</p>
+      ${v.specs ? `<ul class="specs">${v.specs.map(s => `<li>${s}</li>`).join("")}</ul>` : ""}
+      <div class="foot">
+        <div class="price"><b>$${v.price}</b><span>/ day</span></div>
+        ${v.ok ? `<a href="#" class="btn sm">Book now</a>`
+                : `<a href="#" class="btn sm ghost">Notify me</a>`}
+      </div>
+    </div>
+  </article>`;
+
+const root = document.documentElement;
+let filter = "All";
+
+function render(){
+  const avail = FLEET.filter(v => v.ok);
+
+  /* Featured: up to three, mixed across categories, never three of the same model. */
+  const seen = new Set();
+  const feat = avail.filter(v => {
+    const key = v.cat + v.name.split(" ")[0];
+    if (seen.has(key)) return false;
+    seen.add(key); return true;
+  }).slice(0,3);
+  document.getElementById("featured").innerHTML = feat.map(card).join("");
+  /* A single car shouldn't sit in a three-up grid looking like two are missing. */
+  document.getElementById("featured").classList.toggle("solo", feat.length === 1);
+
+  /* Filters only earn their place once there's more than one category in stock. */
+  const live = CATS.filter(c => c === "All" || FLEET.some(v => v.cat === c));
+  const filterBar = document.getElementById("filters");
+  if (live.length <= 2){
+    filterBar.style.display = "none";
+    filter = "All";
+  } else {
+    filterBar.style.display = "";
+    filterBar.innerHTML =
+      live.map(c => `<button type="button" class="chip" data-cat="${c}" aria-pressed="${c===filter}">${c}</button>`).join("")
+      + `<span class="count"></span>`;
+  }
+
+  /* Available first, unavailable sorted to the bottom — never removed. */
+  const shown = FLEET
+    .filter(v => filter === "All" || v.cat === filter)
+    .sort((a,b) => (b.ok - a.ok) || (a.price - b.price));
+  const grid = document.getElementById("fleetGrid");
+  grid.innerHTML = shown.map(card).join("");
+  grid.classList.toggle("solo", shown.length === 1);
+
+  /* Every counter on the site derives from the array, so nothing can drift. */
+  const countEl = filterBar.querySelector(".count");
+  if (countEl) countEl.textContent = `${shown.length} of ${FLEET.length} vehicles`;
+
+  const noun = n => `${n} ${n === 1 ? "vehicle" : "vehicles"}`;
+  document.getElementById("availCount").textContent = noun(avail.length);
+  document.querySelectorAll("[data-fleet-size]").forEach(el => el.textContent = FLEET.length);
+  document.querySelectorAll("[data-from-price]").forEach(el =>
+    el.textContent = "$" + Math.min(...FLEET.map(v => v.price)));
+}
+
+document.getElementById("filters").addEventListener("click", e => {
+  const c = e.target.closest("[data-cat]");
+  if (!c) return;
+  filter = c.dataset.cat;
+  render();
+});
+
+/* View swap — prototype stand-in for real routing */
+document.addEventListener("click", e => {
+  const n = e.target.closest("[data-nav]");
+  if (!n) return;
+  e.preventDefault();
+  root.dataset.view = n.dataset.nav;
+  window.scrollTo({top:0, behavior:"smooth"});
+});
+
+/* Hero video: the poster carries first paint, then the clip loads and
+   starts once the page is done — so 500KB of video never delays the
+   headline. Pause control is a requirement, not a nicety: anything
+   moving longer than 5s needs a stop. */
+const hv = document.getElementById("heroVid");
+const ctl = document.getElementById("vidctl");
+if (hv && ctl){
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (reduced){
+    hv.removeAttribute("autoplay");
+  } else {
+    const start = () => { hv.load(); hv.play().catch(() => {}); };
+    if (document.readyState === "complete") start();
+    else window.addEventListener("load", start, {once:true});
+  }
+  const sync = () => {
+    const paused = hv.paused;
+    ctl.setAttribute("aria-pressed", paused);
+    ctl.querySelector("span").textContent = paused ? "Play" : "Pause";
+    ctl.querySelector("svg").innerHTML = paused
+      ? '<path d="M0 0l10 6-10 6z"/>'
+      : '<rect x="0" y="0" width="3" height="12" rx="1"/><rect x="7" y="0" width="3" height="12" rx="1"/>';
+  };
+  ctl.addEventListener("click", () => {
+    hv.paused ? hv.play().catch(()=>{}) : hv.pause();
+    sync();
+  });
+  hv.addEventListener("play", sync);
+  hv.addEventListener("pause", sync);
+  sync();
+}
+
+render();
+</script>
+</body>
+</html>
